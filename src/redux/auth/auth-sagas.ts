@@ -1,4 +1,4 @@
-import { put, call, all, takeLatest } from 'redux-saga/effects';
+import { put, call, all, takeLatest, fork } from 'redux-saga/effects';
 
 import { setUser, LOGIN, removeUser, LOGOUT } from './auth-actions';
 import { ActionStandard } from '../types';
@@ -27,4 +27,6 @@ function* authenticationSagas() {
   yield all([takeLatest(LOGOUT, logout)]);
 }
 
-export default authenticationSagas;
+const authentication = [fork(authenticationSagas)];
+
+export default authentication;
