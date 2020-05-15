@@ -4,6 +4,7 @@ export type Activity = {
   type: string;
   participants: number;
   price: number;
+  id: string;
 };
 
 export type Activities = {
