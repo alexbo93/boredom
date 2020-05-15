@@ -1,5 +1,3 @@
-import { Action } from 'redux';
-
 import {
   ADD_FAVOURITE,
   REMOVE_FAVOURITE,

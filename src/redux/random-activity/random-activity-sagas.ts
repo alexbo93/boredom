@@ -4,10 +4,12 @@ import {
   setRandomActivity,
 } from './random-activity-actions';
 
+import ApiClient from 'services/api-client';
+
 function* getRandomActivitySaga() {
   try {
-    const apiClient = new apiClient();
-    const activity = yield call(apiClient.getRandomActivity());
+    const apiClient = new ApiClient();
+    const activity = yield call(apiClient.getRandomActivity);
 
     yield put(setRandomActivity(activity));
   } catch (error) {
