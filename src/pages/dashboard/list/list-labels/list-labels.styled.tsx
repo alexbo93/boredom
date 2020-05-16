@@ -10,7 +10,7 @@ export const ListLabelsContainer = styled.div`
 
 export const ItemLabel = styled.div`
   display: inline-block;
-  width: 20%;
+  width: 16%;
 
   @media (max-width: 600px) {
     display: none;
@@ -18,6 +18,7 @@ export const ItemLabel = styled.div`
 `;
 
 export const ItemDescriptionLabel = styled(ItemLabel)`
+  width: 30%;
   @media (max-width: 600px) {
     width: 80%;
   }

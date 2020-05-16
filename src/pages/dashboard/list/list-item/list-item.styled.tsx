@@ -3,58 +3,35 @@ import styled from 'styled-components';
 export const ListItemContainer = styled.div`
   height: 50px;
   width: 100%;
-  padding: 0 20px;
+  padding: 0 10px;
   border: 1px solid #999;
   background-color: #ddd;
   border-radius: 5px;
   margin-bottom: 10px;
 
-  @media (max-width: 768px) {
-    padding: 0 10px;
-  }
-`;
+  display: grid;
+  grid-template-columns: 25px 30% repeat(4, 16%);
 
-export const ItemDetailIconContainer = styled.div`
-  float: right;
-
-  a {
-    color: #8c54a1;
-  }
-
-  i {
-    vertical-align: middle;
-    line-height: 50px;
-    cursor: pointer;
-    margin-right: 7px;
+  @media (max-width: 600px) {
+    grid-template-columns: 25px 80%;
   }
 `;
 
 export const ItemIconContainer = styled.div`
-  width: 20%;
-  display: inline-block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-
   i {
-    margin-right: 6px;
-    color: #8c54a1;
-  }
-
-  i,
-  span {
-    vertical-align: middle;
     line-height: 50px;
-  }
+    color: red;
+    cursor: pointer;
+    transition-duration: 0.3s;
+    transition-property: transform;
 
-  @media (max-width: 600px) {
-    width: 70%;
+    &:hover {
+      transform: scale(1.3);
+    }
   }
 `;
 
 export const ItemVariableInfoContainer = styled.div`
-  width: 20%;
-  display: inline-block;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -65,5 +42,11 @@ export const ItemVariableInfoContainer = styled.div`
 
   @media (max-width: 600px) {
     display: none;
+  }
+`;
+
+export const ItemDescriptionContainer = styled(ItemVariableInfoContainer)`
+  @media (max-width: 600px) {
+    width: 70%;
   }
 `;

@@ -5,6 +5,7 @@ import {
   ListItemContainer,
   ItemIconContainer,
   ItemVariableInfoContainer,
+  ItemDescriptionContainer,
 } from './list-item.styled';
 
 const ActivitiesListItem: React.FC<ActivitiesListItemModel> = ({
@@ -13,9 +14,11 @@ const ActivitiesListItem: React.FC<ActivitiesListItemModel> = ({
   return (
     <ListItemContainer data-testid='list__item-container'>
       <ItemIconContainer>
-        <i className='fas fa-map-marker-alt'></i>
-        <span data-testid='description'>{activity.activity}</span>
+        <i className='far fa-heart' />
       </ItemIconContainer>
+      <ItemDescriptionContainer>
+        <span data-testid='description'>{activity.activity}</span>
+      </ItemDescriptionContainer>
       <ItemVariableInfoContainer data-testid='accessibility'>
         <span>{activity.accessibility}</span>
       </ItemVariableInfoContainer>
