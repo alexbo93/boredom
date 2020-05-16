@@ -7,7 +7,6 @@ import ActivityNormalizer from 'services/activity-normalizer';
 function* getActivities() {
   try {
     const apiClient = new ApiClient();
-    console.log('apiClient: ', apiClient);
     const response = yield call(apiClient.getActivities);
 
     const activities = yield call(ActivityNormalizer.normalize, response);

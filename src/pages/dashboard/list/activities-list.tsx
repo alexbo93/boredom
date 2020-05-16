@@ -6,15 +6,14 @@ import ActivitiesListLabels from './list-labels';
 import { ActivitiesListModel } from '../types';
 
 const ActivitiesList: React.FC<ActivitiesListModel> = ({
+  idList,
   activities,
   onLabelSelected,
 }) => {
   const getList = () => {
-    const keys = Object.keys(activities);
-    return keys.map((activityId: string) => {
+    return idList.map((activityId: string) => {
       const activity = activities[activityId];
-      console.log('activity: ', activity);
-      return <ActivitiesListItem activity={activity} key={activity.id} />;
+      return <ActivitiesListItem activity={activity} key={activityId} />;
     });
   };
 

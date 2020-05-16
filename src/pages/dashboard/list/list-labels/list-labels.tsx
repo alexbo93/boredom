@@ -15,15 +15,24 @@ const ActivitiesListLabels: React.FC<ActivitiesListLabelsModel> = ({
     <div></div>
     <ItemDescriptionLabel onClick={() => onLabelSelected('activity')}>
       Activity
+      <i className='fas fa-sort-down' />
     </ItemDescriptionLabel>
     <ItemLabel onClick={() => onLabelSelected('accessibility')}>
       Accessibility
+      <i className='fas fa-sort-down' />
     </ItemLabel>
-    <ItemLabel onClick={() => onLabelSelected('type')}>Type</ItemLabel>
+    <ItemLabel onClick={() => onLabelSelected('type')}>
+      Type
+      <i className='fas fa-sort-down' />
+    </ItemLabel>
     <ItemLabel onClick={() => onLabelSelected('participants')}>
       Participants
+      <i className='fas fa-sort-down' />
     </ItemLabel>
-    <ItemLabel onClick={() => onLabelSelected('price')}>Price</ItemLabel>
+    <ItemLabel onClick={() => onLabelSelected('price')}>
+      Price
+      <i className='fas fa-sort-down' />
+    </ItemLabel>
   </ListLabelsContainer>
 );
 

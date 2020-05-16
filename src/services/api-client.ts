@@ -5,7 +5,6 @@ export class ApiClient {
   private readonly totalActivities: string = '/10';
 
   public getActivities = async () => {
-    console.log('this: ', this);
     const url = `${this.baseUrl}${this.listPath}${this.totalActivities}`;
     const response = await fetch(url);
     return response.json();

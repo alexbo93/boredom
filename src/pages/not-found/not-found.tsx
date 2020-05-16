@@ -4,7 +4,6 @@ import { ContentContainer } from 'components/container';
 import Header from 'components/header';
 import { MainButtonLink } from 'components/button';
 
-console.log('add header to notfound page');
 const NotFound: React.FC<{}> = () => (
   <>
     <Header />

@@ -14,15 +14,20 @@ export const ListLabelsContainer = styled.div`
   }
 `;
 
-export const ItemLabel = styled.div`
+const Label = styled.div`
   cursor: pointer;
+  i {
+    margin-left: 5px;
+  }
+`;
+
+export const ItemLabel = styled(Label)`
   @media (max-width: 600px) {
     display: none;
   }
 `;
 
-export const ItemDescriptionLabel = styled.div`
-  cursor: pointer;
+export const ItemDescriptionLabel = styled(Label)`
   @media (max-width: 600px) {
     width: 80%;
   }
