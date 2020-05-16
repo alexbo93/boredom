@@ -4,7 +4,7 @@ import {
   setRandomActivity,
 } from './random-activity-actions';
 
-import ApiClient from 'services/api-client';
+import { ApiClient } from 'services/api-client';
 
 function* getRandomActivitySaga() {
   try {
@@ -13,7 +13,7 @@ function* getRandomActivitySaga() {
 
     yield put(setRandomActivity(activity));
   } catch (error) {
-    console.error('Failed on retrieving activities');
+    console.error('Failed on retrieving activity', error);
   }
 }
 

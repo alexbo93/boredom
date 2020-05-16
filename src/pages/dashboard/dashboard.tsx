@@ -11,6 +11,7 @@ import ActivitiesList from './list';
 
 const Dashboard: React.FC<{}> = () => {
   const activities = useSelector(selectActivities);
+  console.log('activities: ', activities);
   const nickname = useSelector(selectUserName);
 
   console.log('ADD SEARCH AND FILTER');
@@ -19,10 +20,14 @@ const Dashboard: React.FC<{}> = () => {
       <Header contextMenu />
       <MainContainer>
         <h1>Welcome, {nickname}</h1>
-        <ActivitiesList
-          activities={activities}
-          onLabelSelected={() => console.log('label selected')}
-        />
+        {!!Object.keys(activities).length ? (
+          <ActivitiesList
+            activities={activities}
+            onLabelSelected={(name: string) => console.log(name)}
+          />
+        ) : (
+          'No activities to show'
+        )}
       </MainContainer>
       {/* <Footer /> */}
     </>

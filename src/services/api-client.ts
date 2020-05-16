@@ -1,22 +1,19 @@
-class ApiClient {
-  private baseUrl = 'https://bored-api.firebaseapp.com/';
-  private randomPath = 'api/activity';
-  private listPath = '/api/activity/list';
-  private totalActivities = '10';
+export class ApiClient {
+  private readonly baseUrl: string = 'https://bored-api.firebaseapp.com/';
+  private readonly randomPath: string = 'api/activity';
+  private readonly listPath: string = 'api/activity/list';
+  private readonly totalActivities: string = '/10';
 
-  constructor(private windowFetch = fetch) {}
-
-  public async getActivities() {
+  public getActivities = async () => {
+    console.log('this: ', this);
     const url = `${this.baseUrl}${this.listPath}${this.totalActivities}`;
-    const response = await this.windowFetch(url);
+    const response = await fetch(url);
     return response.json();
-  }
+  };
 
-  public async getRandomActivity() {
+  public getRandomActivity = async () => {
     const url = `${this.baseUrl}${this.randomPath}`;
-    const response = await this.windowFetch(url);
+    const response = await fetch(url);
     return response.json();
-  }
+  };
 }
-
-export default ApiClient;

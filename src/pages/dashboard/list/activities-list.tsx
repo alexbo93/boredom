@@ -11,8 +11,9 @@ const ActivitiesList: React.FC<ActivitiesListModel> = ({
 }) => {
   const getList = () => {
     const keys = Object.keys(activities);
-    keys.map((activityId: string) => {
+    return keys.map((activityId: string) => {
       const activity = activities[activityId];
+      console.log('activity: ', activity);
       return <ActivitiesListItem activity={activity} key={activity.id} />;
     });
   };
@@ -20,7 +21,7 @@ const ActivitiesList: React.FC<ActivitiesListModel> = ({
   return (
     <div data-testid='activities-list__list-container'>
       <ActivitiesListLabels onLabelSelected={onLabelSelected} />
-      {activities.length ? getList() : 'No activities to show'}
+      {getList()}
     </div>
   );
 };
