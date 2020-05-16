@@ -17,14 +17,18 @@ import PrivateRoute from 'hoc/private-route';
 // import Footer from './components/footer';
 
 import './App.css';
+import { getActivities } from 'redux/activities';
 
 const App = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getActivities());
+  }, [dispatch]);
 
   return (
     <Router>
       <div className='App'>
-        {/* <Header /> */}
         <Switch>
           <Route path='/login' exact>
             <Login />
@@ -37,7 +41,6 @@ const App = () => {
           </Route>
           <Redirect to='/not-found' />
         </Switch>
-        {/* <Footer /> */}
       </div>
     </Router>
   );
