@@ -1,13 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-import { MainContainer } from 'components/container';
+import { ContentContainer } from 'components/container';
+import Header from 'components/header';
+import { MainButtonLink } from 'components/button';
 
+console.log('add header to notfound page');
 const NotFound: React.FC<{}> = () => (
-  <MainContainer>
-    <h1>The Page you are looking for is not found</h1>
-    <Link to='/dashboard'>Go Home</Link>
-  </MainContainer>
+  <>
+    <Header />
+    <ContentContainer>
+      <h1>The Page you are looking for is not found</h1>
+      <MainButtonLink to='/'>Go Home</MainButtonLink>
+    </ContentContainer>
+  </>
 );
 
 export default NotFound;

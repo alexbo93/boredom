@@ -40,6 +40,8 @@ const Login = () => {
     return regex.test(nickname);
   };
 
+  console.log('END LOGIN STYLING');
+
   return (
     <LoginContainer>
       <OpacityContainer />
