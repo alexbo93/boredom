@@ -9,15 +9,21 @@ export const ListLabelsContainer = styled.div`
 
   grid-template-columns: 25px 30% repeat(4, 16%);
 
-  div {
-    cursor: pointer;
-  }
-
   @media (max-width: 600px) {
     grid-template-columns: 25px 80%;
   }
 `;
 
-export const ItemLabel = styled.div``;
+export const ItemLabel = styled.div`
+  cursor: pointer;
+  @media (max-width: 600px) {
+    display: none;
+  }
+`;
 
-export const ItemDescriptionLabel = styled.div``;
+export const ItemDescriptionLabel = styled.div`
+  cursor: pointer;
+  @media (max-width: 600px) {
+    width: 80%;
+  }
+`;

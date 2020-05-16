@@ -31,7 +31,7 @@ export const ItemIconContainer = styled.div`
   }
 `;
 
-export const ItemVariableInfoContainer = styled.div`
+const ItemInfoContainer = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -39,14 +39,16 @@ export const ItemVariableInfoContainer = styled.div`
   span {
     line-height: 50px;
   }
+`;
 
+export const ItemVariableInfoContainer = styled(ItemInfoContainer)`
   @media (max-width: 600px) {
     display: none;
   }
 `;
 
-export const ItemDescriptionContainer = styled(ItemVariableInfoContainer)`
+export const ItemDescriptionContainer = styled(ItemInfoContainer)`
   @media (max-width: 600px) {
-    width: 70%;
+    width: 90%;
   }
 `;
