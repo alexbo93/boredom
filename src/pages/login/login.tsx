@@ -19,9 +19,14 @@ const Login = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const [nickname, setNickname] = useState('');
+  const [visited, setVisited] = useState(false);
 
   const handleNameChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
     setNickname(evt.target.value);
+  };
+
+  const handleInputVisited = () => {
+    setVisited(true);
   };
 
   const handleLogin = (event: React.FormEvent<HTMLFormElement>) => {
@@ -32,8 +37,6 @@ const Login = () => {
 
   const isNickValid = () => {
     const regex = new RegExp('^[A-Za-z]{3,}$');
-    console.log('nickName: ', nickname);
-    console.log('test: ', regex.test(nickname));
     return regex.test(nickname);
   };
 
@@ -44,7 +47,7 @@ const Login = () => {
         {!!storeName ? (
           <>
             <h1>Your are already logged in</h1>
-            <MainButtonLink to='/dashboard'>Go to Dashboard</MainButtonLink>
+            <MainButtonLink to='/'>Go to Dashboard</MainButtonLink>
           </>
         ) : (
           <form onSubmit={handleLogin}>
@@ -54,13 +57,14 @@ const Login = () => {
               type='text'
               onChange={handleNameChange}
               value={nickname}
+              onBlur={handleInputVisited}
             />
-            {isNickValid() ? (
-              ''
-            ) : (
+            {!isNickValid() && visited ? (
               <InputErrorLabel>
                 Name can only contain Alphabetic chars
               </InputErrorLabel>
+            ) : (
+              ''
             )}
             <MainButton as='button' type='submit' disabled={!isNickValid()}>
               Let's go
