@@ -15,3 +15,10 @@ interface ActivitiesListItemModel {
 interface ActivitiesListLabelsModel {
   onLabelSelected: selectLabelFn;
 }
+
+interface ActivityFiltersModel {
+  filter: string;
+  displayFavs: boolean;
+  setFilter: (filter: string) => void;
+  toggleDisplayFavs: () => void;
+}

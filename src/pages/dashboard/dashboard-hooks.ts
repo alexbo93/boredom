@@ -3,9 +3,8 @@ import { useSelector } from 'react-redux';
 
 import { selectActivities } from 'redux/activities';
 import { selectFavourites } from 'redux/favourites';
-import { Activities, Activity } from 'redux/activities/activities-types';
-import ActivityNormalizer from 'services/activity-normalizer';
 import { selectUserName } from 'redux/auth';
+import { Activities, Activity } from 'redux/activities/activities-types';
 
 const useActivities = () => {
   const activities = useSelector(selectActivities);
@@ -14,6 +13,8 @@ const useActivities = () => {
 
   const [filter, setFilter] = useState('');
   const [displayFavs, setDisplayFavs] = useState(false);
+
+  const toggleDisplayFavs = () => setDisplayFavs((prevState) => !prevState);
 
   const [order, setOrder] = useState({
     param: 'activity',
@@ -25,7 +26,10 @@ const useActivities = () => {
 
     if (filter.length) {
       newList = newList.filter(
-        (activityId: string) => activities[activityId].activity === filter,
+        (activityId: string) =>
+          activities[activityId].activity
+            .toLowerCase()
+            .indexOf(filter.toLowerCase()) !== -1,
       );
     }
     if (displayFavs) {
@@ -66,8 +70,10 @@ const useActivities = () => {
   return {
     activities,
     nickname,
+    filter,
     setFilter,
-    setDisplayFavs,
+    displayFavs,
+    toggleDisplayFavs,
     getActivitiesWithFiltersAndOrder,
     onOrderSet,
   };

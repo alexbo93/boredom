@@ -8,5 +8,13 @@ export const CustomInput = styled.input`
 
   i {
     margin-right: 10px;
+    vertical-align: middle;
   }
+`;
+
+export const CustomInputWithIcon = styled(CustomInput)`
+  font-family: FontAwesome, Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
 `;
