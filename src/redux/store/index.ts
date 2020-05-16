@@ -7,6 +7,8 @@ import rootReducer from './root-reducer';
 import rootSagas from './root-saga';
 import { State } from 'redux/types';
 
+import { getPersistedState } from 'services/persisted-state';
+
 const sagaMiddleware = createSagaMiddleware();
 
 const setMiddlewareList = () => {
@@ -18,8 +20,13 @@ const setMiddlewareList = () => {
   return applyMiddleware(...middlewareList);
 };
 
-const configureStore = (initialState: State | undefined = undefined) => {
-  let store = createStore(rootReducer, initialState, composeEnhancer(setMiddlewareList()));
+const persistedState = getPersistedState();
+const configureStore = (initialState: State | undefined = persistedState) => {
+  let store = createStore(
+    rootReducer,
+    initialState,
+    composeEnhancer(setMiddlewareList()),
+  );
   sagaMiddleware.run(rootSagas);
   return store;
 };

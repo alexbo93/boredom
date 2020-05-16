@@ -12,10 +12,12 @@ import {
   InputErrorLabel,
   OpacityContainer,
 } from './login.styled';
+import { useHistory } from 'react-router-dom';
 
 const Login = () => {
   const storeName = useSelector(selectUserName);
   const dispatch = useDispatch();
+  const history = useHistory();
   const [nickname, setNickname] = useState('');
 
   const handleNameChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,6 +27,7 @@ const Login = () => {
   const handleLogin = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     dispatch(login(nickname));
+    history.push('/');
   };
 
   const isNickValid = () => {

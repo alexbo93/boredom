@@ -29,7 +29,7 @@ const App = () => {
           <Route path='/login' exact>
             <Login />
           </Route>
-          <PrivateRoute path='/dashboard' exact>
+          <PrivateRoute path='/' exact>
             <Dashboard />
           </PrivateRoute>
           <Route path='/not-found'>

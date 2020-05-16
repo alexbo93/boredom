@@ -9,6 +9,7 @@ export const MainButtonLink = styled(Link)`
   padding: 10px 30px;
   display: inline-block;
   margin-top: 20px;
+  color: #333;
 
   transition-duration: 0.3s;
   transition-property: color, background-color;
@@ -16,6 +17,17 @@ export const MainButtonLink = styled(Link)`
   &:hover {
     background-color: #bbb;
     color: #000;
+  }
+
+  &:disabled {
+    background-color: #aaa;
+    cursor: default;
+    color: #333;
+
+    &:hover {
+      background-color: #aaa;
+      color: #333;
+    }
   }
 `;
 
