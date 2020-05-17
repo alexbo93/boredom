@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import {
   HeaderContainer,
@@ -10,7 +11,7 @@ import {
 import { useDispatch } from 'react-redux';
 import { logout } from 'redux/auth';
 import { setFavouritesVisible } from 'redux/fav-slide-panel';
-import { useHistory } from 'react-router-dom';
+import { setRandomVisible } from 'redux/random-activity-panel';
 
 interface HeaderModel {
   contextMenu?: boolean;
@@ -30,7 +31,8 @@ const Header: React.FC<HeaderModel> = ({ contextMenu = false }) => {
     history.push('/login');
   };
   const onShowRandomActivity = () => {
-    console.log('showing random activity');
+    dispatch(setRandomVisible());
+    toggleMenuVisibility();
   };
 
   const toggleMenuVisibility = () => setMenuVisible((prevState) => !prevState);

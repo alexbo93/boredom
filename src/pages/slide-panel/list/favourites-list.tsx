@@ -12,6 +12,7 @@ const FavouritesList: React.FC<FavouritesListModel> = ({
   <FavouritesListContainer>
     {Object.keys(favourites).map((id: string) => (
       <FaviouritesListItem
+        key={id}
         favourite={favourites[id]}
         onRemove={() => onFavouriteRemove(id)}
       />

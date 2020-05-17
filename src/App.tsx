@@ -11,6 +11,7 @@ import Login from './pages/login';
 import Dashboard from './pages/dashboard';
 import NotFound from './pages/not-found';
 import SlidePanel from './pages/slide-panel';
+import RandomActivityPanel from './pages/random-activity-panel';
 
 import PrivateRoute from 'hoc/private-route';
 
@@ -40,6 +41,7 @@ const App = () => {
           <Redirect to='/not-found' />
         </Switch>
         <SlidePanel />
+        <RandomActivityPanel />
       </div>
     </Router>
   );

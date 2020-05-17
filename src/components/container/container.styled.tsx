@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { HoverAnimation } from 'components/shared/shared.styled';
 
 export const MainContainer = styled.div`
   width: 100%;
@@ -33,5 +34,24 @@ export const ContentContainer = styled.div`
   @media (max-width: 600px) {
     width: 95%;
     padding: 15px;
+  }
+`;
+
+export const LikeTitleContainer = styled.div`
+  display: grid;
+  grid-template-columns: 90% auto;
+  padding-top: 5px;
+
+  i {
+    align-self: start;
+    justify-self: end;
+    font-size: 24px;
+    cursor: pointer;
+    color: red;
+    ${HoverAnimation}
+  }
+
+  @media screen and (max-width: 600px) {
+    grid-template-columns: 80% auto;
   }
 `;

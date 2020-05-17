@@ -1,10 +1,10 @@
 import React from 'react';
 
 import { FavouritesListItemModel } from 'pages/slide-panel/slide-panel-types.d';
+import { LikeTitleContainer } from 'components/container';
 import {
   FavouriteListItemContainer,
   FavouritesListItemInfo,
-  ItemTitleContainer,
 } from './favourites-list-item.styled';
 
 const FavouritesListItem: React.FC<FavouritesListItemModel> = ({
@@ -12,10 +12,10 @@ const FavouritesListItem: React.FC<FavouritesListItemModel> = ({
   onRemove,
 }) => (
   <FavouriteListItemContainer>
-    <ItemTitleContainer>
+    <LikeTitleContainer>
       <h4>{favourite.activity}</h4>
       <i onClick={() => onRemove()} className='fas fa-heart' />
-    </ItemTitleContainer>
+    </LikeTitleContainer>
     <FavouritesListItemInfo>
       <i className='fas fa-percentage' />
       <span>{favourite.accessibility}</span>

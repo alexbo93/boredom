@@ -11,7 +11,7 @@ function* getRandomActivitySaga() {
     const apiClient = new ApiClient();
     const activity = yield call(apiClient.getRandomActivity);
 
-    yield put(setRandomActivity(activity));
+    yield put(setRandomActivity(activity[0]));
   } catch (error) {
     console.error('Failed on retrieving activity', error);
   }

@@ -12,4 +12,5 @@ export type State = {
   favourites: Activities;
   randomActivity: Activity | null;
   favSlidePanel: boolean;
+  randomActivityPanel: boolean;
 };
