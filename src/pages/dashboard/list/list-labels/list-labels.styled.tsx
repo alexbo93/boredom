@@ -32,3 +32,18 @@ export const ItemDescriptionLabel = styled(Label)`
     width: 80%;
   }
 `;
+
+export const ListLabel = styled.span`
+  display: block;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`;
+export const ListIcon = styled.i`
+  display: none;
+
+  @media screen and (max-width: 768px) {
+    display: block;
+  }
+`;

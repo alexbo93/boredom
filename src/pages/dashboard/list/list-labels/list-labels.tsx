@@ -4,6 +4,8 @@ import {
   ListLabelsContainer,
   ItemLabel,
   ItemDescriptionLabel,
+  ListLabel,
+  ListIcon,
 } from './list-labels.styled';
 
 import { ActivitiesListLabelsModel } from 'pages/dashboard/types';
@@ -14,24 +16,39 @@ const ActivitiesListLabels: React.FC<ActivitiesListLabelsModel> = ({
   <ListLabelsContainer data-testid='list__labels-container'>
     <div></div>
     <ItemDescriptionLabel onClick={() => onLabelSelected('activity')}>
-      Activity
-      <i className='fas fa-sort-down' />
+      <ListLabel>
+        Activity
+        <i className='fas fa-sort-down' />
+      </ListLabel>
+      <ListIcon className='fas fa-snowboarding' />
     </ItemDescriptionLabel>
     <ItemLabel onClick={() => onLabelSelected('accessibility')}>
-      Accessibility
-      <i className='fas fa-sort-down' />
+      <ListLabel>
+        Accessibility
+        <i className='fas fa-sort-down' />
+      </ListLabel>
+      <ListIcon className='fas fa-percentage' />
     </ItemLabel>
     <ItemLabel onClick={() => onLabelSelected('type')}>
-      Type
-      <i className='fas fa-sort-down' />
+      <ListLabel>
+        Type
+        <i className='fas fa-sort-down' />
+      </ListLabel>
+      <ListIcon className='fas fa-play' />
     </ItemLabel>
     <ItemLabel onClick={() => onLabelSelected('participants')}>
-      Participants
-      <i className='fas fa-sort-down' />
+      <ListLabel>
+        Participants
+        <i className='fas fa-sort-down' />
+      </ListLabel>
+      <ListIcon className='fas fa-user-friends' />
     </ItemLabel>
     <ItemLabel onClick={() => onLabelSelected('price')}>
-      Price
-      <i className='fas fa-sort-down' />
+      <ListLabel>
+        Price
+        <i className='fas fa-sort-down' />
+      </ListLabel>
+      <ListIcon className='fas fa-euro-sign' />
     </ItemLabel>
   </ListLabelsContainer>
 );
