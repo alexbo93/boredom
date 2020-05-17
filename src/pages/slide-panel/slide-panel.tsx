@@ -15,7 +15,10 @@ import { NotFoundLabel } from 'pages/dashboard/dashboard.styled';
 const SlidePanel: React.FC<{}> = () => {
   const isPanelVisible = useSelector(selectFavourtiesPanelVisible);
   const dispatch = useDispatch();
-  const setPanelInvisible = () => dispatch(setFavouritesInvisible());
+  const setPanelInvisible = () => {
+    document.body.removeAttribute('style');
+    dispatch(setFavouritesInvisible());
+  };
   const favourites = useSelector(selectFavourites);
 
   const onFavouriteRemove = (id: string) => dispatch(removeFavourite(id));
@@ -30,6 +33,7 @@ const SlidePanel: React.FC<{}> = () => {
         shouldCloseOnOverlayClick={true}
         data-testid='modal'
         onRequestClose={setPanelInvisible}
+        onAfterOpen={() => (document.body.style.overflow = 'hidden')}
       >
         <h3>Favourites List</h3>
         {getIsFavouritesEmpty() ? (

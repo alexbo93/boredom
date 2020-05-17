@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { HoverAnimation } from 'components/shared/shared.styled';
+
 export const ListItemContainer = styled.div`
   height: 50px;
   width: 100%;
@@ -22,12 +24,7 @@ export const ItemIconContainer = styled.div`
     line-height: 50px;
     color: red;
     cursor: pointer;
-    transition-duration: 0.3s;
-    transition-property: transform;
-
-    &:hover {
-      transform: scale(1.3);
-    }
+    ${HoverAnimation}
   }
 `;
 

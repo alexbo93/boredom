@@ -6,7 +6,7 @@ type persistedState = {
   [key: string]: any;
 };
 
-const whiteList: string[] = ['auth', 'favourties'];
+const whiteList: string[] = ['auth', 'favourites'];
 
 export const getPersistedState: () => any = () => {
   try {
