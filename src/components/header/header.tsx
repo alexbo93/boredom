@@ -4,7 +4,13 @@ import {
   HeaderContainer,
   HeaderLogoContainer,
   HeaderNavContainer,
+  Dropdown,
+  DropdownList,
 } from './header.styled';
+import { useDispatch } from 'react-redux';
+import { logout } from 'redux/auth';
+import { setFavouritesVisible } from 'redux/fav-slide-panel';
+import { useHistory } from 'react-router-dom';
 
 interface HeaderModel {
   contextMenu?: boolean;
@@ -12,6 +18,20 @@ interface HeaderModel {
 
 const Header: React.FC<HeaderModel> = ({ contextMenu = false }) => {
   const [menuVisible, setMenuVisible] = useState(false);
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const onFavouritesShow = () => {
+    dispatch(setFavouritesVisible());
+    toggleMenuVisibility();
+  };
+  const onLogout = () => {
+    dispatch(logout());
+    history.push('/login');
+  };
+  const onShowRandomActivity = () => {
+    console.log('showing random activity');
+  };
 
   const toggleMenuVisibility = () => setMenuVisible((prevState) => !prevState);
 
@@ -25,7 +45,15 @@ const Header: React.FC<HeaderModel> = ({ contextMenu = false }) => {
             <i className='fas fa-angle-down' />
           )}
         </HeaderNavContainer>
-        {menuVisible && <span>Menu Visible</span>}
+        {menuVisible && (
+          <Dropdown>
+            <DropdownList>
+              <li onClick={onFavouritesShow}>Show favourites</li>
+              <li onClick={onShowRandomActivity}>I'm super bored!</li>
+              <li onClick={onLogout}>Logout</li>
+            </DropdownList>
+          </Dropdown>
+        )}
       </>
     );
   };

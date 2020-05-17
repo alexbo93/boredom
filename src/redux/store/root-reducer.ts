@@ -4,6 +4,7 @@ import { activities } from '../activities';
 import { auth } from '../auth';
 import { favourites } from '../favourites';
 import { randomActivity } from '../random-activity';
+import { favSlidePanel } from '../fav-slide-panel';
 import { State } from '../types';
 
 const createRootReducer: Function = (): Reducer<State> =>
@@ -12,6 +13,7 @@ const createRootReducer: Function = (): Reducer<State> =>
     auth,
     favourites,
     randomActivity,
+    favSlidePanel,
   });
 
 export default createRootReducer();

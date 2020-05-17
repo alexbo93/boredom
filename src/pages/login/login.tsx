@@ -40,7 +40,7 @@ const Login = () => {
     return regex.test(nickname);
   };
 
-  console.log('END LOGIN STYLING');
+  console.log('END LOGIN STYLING AND REMOVE LOGIN ACTION');
 
   return (
     <LoginContainer>

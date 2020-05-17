@@ -2,12 +2,12 @@ import { put, call, all, takeLatest, fork } from 'redux-saga/effects';
 
 import { setUser, LOGIN, removeUser, LOGOUT } from './auth-actions';
 import { ActionStandard } from '../types';
+import { removeFavourites } from 'redux/favourites';
 
 function* login(action: ActionStandard<string>) {
   try {
     const nick = action.payload;
     yield put(setUser(nick));
-    // store in localStorage
   } catch (error) {
     console.error('authentication failed');
   }
@@ -16,7 +16,7 @@ function* login(action: ActionStandard<string>) {
 function* logout() {
   try {
     yield put(removeUser());
-    // remove data from localStorage
+    yield put(removeFavourites());
   } catch (error) {
     console.error('Logout failed');
   }

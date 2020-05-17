@@ -11,4 +11,5 @@ export type State = {
   auth: AuthModel;
   favourites: Activities;
   randomActivity: Activity | null;
+  favSlidePanel: boolean;
 };
