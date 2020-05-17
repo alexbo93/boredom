@@ -4,7 +4,7 @@ export const ADD_FAVOURITE = 'ADD_FAVOURITE';
 export const REMOVE_FAVOURITE = 'REMOVE_FAVOURITE';
 export const REMOVE_FAVOURITES = 'REMOVE_FAVOURITES';
 
-export const setFavourite = (payload: Activity) => ({
+export const addFavourite = (payload: Activity) => ({
   type: ADD_FAVOURITE,
   payload,
 });

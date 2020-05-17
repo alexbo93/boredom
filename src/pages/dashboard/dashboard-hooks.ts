@@ -1,8 +1,12 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { selectActivities } from 'redux/activities';
-import { selectFavourites } from 'redux/favourites';
+import {
+  selectFavourites,
+  addFavourite,
+  removeFavourite,
+} from 'redux/favourites';
 import { selectUserName } from 'redux/auth';
 import { Activities, Activity } from 'redux/activities/activities-types';
 
@@ -10,6 +14,7 @@ const useActivities = () => {
   const activities = useSelector(selectActivities);
   const favourites = useSelector(selectFavourites);
   const nickname = useSelector(selectUserName);
+  const dispatch = useDispatch();
 
   const [filter, setFilter] = useState('');
   const [displayFavs, setDisplayFavs] = useState(false);
@@ -67,8 +72,14 @@ const useActivities = () => {
       desc: name === order.param ? !order.desc : true,
     });
 
+  const onToggleActivityLike = (activity: Activity) => {
+    if (!!favourites[activity.id]) dispatch(removeFavourite(activity.id));
+    else dispatch(addFavourite(activity));
+  };
+
   return {
     activities,
+    favourites,
     nickname,
     filter,
     setFilter,
@@ -76,6 +87,7 @@ const useActivities = () => {
     toggleDisplayFavs,
     getActivitiesWithFiltersAndOrder,
     onOrderSet,
+    onToggleActivityLike,
   };
 };
 

@@ -12,6 +12,7 @@ import { NotFoundLabel } from './dashboard.styled';
 const Dashboard: React.FC<{}> = () => {
   const {
     activities,
+    favourites,
     nickname,
     setFilter,
     filter,
@@ -19,6 +20,7 @@ const Dashboard: React.FC<{}> = () => {
     toggleDisplayFavs,
     getActivitiesWithFiltersAndOrder,
     onOrderSet,
+    onToggleActivityLike,
   } = useActivities();
 
   const orderedAndFilteredIds = getActivitiesWithFiltersAndOrder(activities);
@@ -40,7 +42,9 @@ const Dashboard: React.FC<{}> = () => {
           <ActivitiesList
             idList={orderedAndFilteredIds}
             activities={activities}
+            favourites={favourites}
             onLabelSelected={onOrderSet}
+            onToggleActivityLike={onToggleActivityLike}
           />
         ) : (
           <NotFoundLabel>No activities to show</NotFoundLabel>

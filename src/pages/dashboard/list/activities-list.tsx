@@ -8,12 +8,22 @@ import { ActivitiesListModel } from '../types';
 const ActivitiesList: React.FC<ActivitiesListModel> = ({
   idList,
   activities,
+  favourites,
   onLabelSelected,
+  onToggleActivityLike,
 }) => {
+  const getIsFavourite = (id: string) => !!favourites[id];
   const getList = () => {
     return idList.map((activityId: string) => {
       const activity = activities[activityId];
-      return <ActivitiesListItem activity={activity} key={activityId} />;
+      return (
+        <ActivitiesListItem
+          activity={activity}
+          isFavourite={getIsFavourite(activityId)}
+          onToggleLike={onToggleActivityLike}
+          key={activityId}
+        />
+      );
     });
   };
 

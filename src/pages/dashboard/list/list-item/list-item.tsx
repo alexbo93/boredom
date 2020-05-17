@@ -10,11 +10,18 @@ import {
 
 const ActivitiesListItem: React.FC<ActivitiesListItemModel> = ({
   activity,
+  isFavourite,
+  onToggleLike,
 }) => {
+  const onLike = () => onToggleLike(activity);
   return (
     <ListItemContainer data-testid='list__item-container'>
-      <ItemIconContainer>
-        <i className='far fa-heart' />
+      <ItemIconContainer onClick={onLike}>
+        {isFavourite ? (
+          <i className='fas fa-heart' />
+        ) : (
+          <i className='far fa-heart' />
+        )}
       </ItemIconContainer>
       <ItemDescriptionContainer>
         <span data-testid='description'>{activity.activity}</span>
