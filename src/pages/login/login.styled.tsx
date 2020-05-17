@@ -12,7 +12,7 @@ export const OpacityContainer = styled.div`
   height: 100vh;
   background-image: url('/assets/skulls.svg');
   background-repeat: repeat;
-  opacity: 0.6;
+  opacity: 0.4;
   z-index: 0;
 `;
 
@@ -23,13 +23,24 @@ export const LoginFormContainer = styled(ContentContainer)`
   margin: 0 auto;
   padding: 30px;
   min-height: 200px;
+  background-color: white;
+  text-align: center;
 
-  -webkit-box-shadow: 0px 3px 5px 0px rgba(#999, 0.75);
-  -moz-box-shadow: 0px 3px 5px 0px rgba(#999, 0.75);
-  box-shadow: 0px 3px 5px 0px rgba(#999, 0.75);
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(51, 51, 51, 0.75);
+  -moz-box-shadow: 0px 3px 5px 0px rgba(51, 51, 51, 0.75);
+  box-shadow: 0px 3px 5px 0px rgba(51, 51, 51, 0.75);
 
   @media (max-width: 600px) {
     top: 10%;
+  }
+
+  h1 {
+    margin-bottom: 30px;
+  }
+
+  input {
+    display: block;
+    margin: 0 auto;
   }
 `;
 

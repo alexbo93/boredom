@@ -4,7 +4,7 @@ import { CustomInput } from 'components/input';
 import { MainButtonLink, MainButton } from 'components/button';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { selectUserName, login } from 'redux/auth';
+import { selectUserName, setUser } from 'redux/auth';
 
 import {
   LoginContainer,
@@ -31,7 +31,7 @@ const Login = () => {
 
   const handleLogin = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    dispatch(login(nickname));
+    dispatch(setUser(nickname));
     history.push('/');
   };
 
@@ -53,21 +53,24 @@ const Login = () => {
           </>
         ) : (
           <form onSubmit={handleLogin}>
-            <h1>This is the login form</h1>
-            <CustomInput
-              name='nickname'
-              type='text'
-              onChange={handleNameChange}
-              value={nickname}
-              onBlur={handleInputVisited}
-            />
-            {!isNickValid() && visited ? (
-              <InputErrorLabel>
-                Name can only contain Alphabetic chars
-              </InputErrorLabel>
-            ) : (
-              ''
-            )}
+            <h1>Hi, Bored person</h1>
+            <div>
+              <CustomInput
+                name='nickname'
+                type='text'
+                onChange={handleNameChange}
+                value={nickname}
+                onBlur={handleInputVisited}
+                placeholder="What's your name?"
+              />
+              {!isNickValid() && visited ? (
+                <InputErrorLabel>
+                  Name can only contain Alphabetic chars
+                </InputErrorLabel>
+              ) : (
+                ''
+              )}
+            </div>
             <MainButton as='button' type='submit' disabled={!isNickValid()}>
               Let's go
             </MainButton>

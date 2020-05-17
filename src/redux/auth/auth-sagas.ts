@@ -1,17 +1,7 @@
-import { put, call, all, takeLatest, fork } from 'redux-saga/effects';
+import { put, all, takeLatest, fork } from 'redux-saga/effects';
 
-import { setUser, LOGIN, removeUser, LOGOUT } from './auth-actions';
-import { ActionStandard } from '../types';
+import { removeUser, LOGOUT } from './auth-actions';
 import { removeFavourites } from 'redux/favourites';
-
-function* login(action: ActionStandard<string>) {
-  try {
-    const nick = action.payload;
-    yield put(setUser(nick));
-  } catch (error) {
-    console.error('authentication failed');
-  }
-}
 
 function* logout() {
   try {
@@ -23,7 +13,6 @@ function* logout() {
 }
 
 function* authenticationSagas() {
-  yield all([takeLatest(LOGIN, login)]);
   yield all([takeLatest(LOGOUT, logout)]);
 }
 

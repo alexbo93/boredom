@@ -1,9 +1,11 @@
 import React from 'react';
+import Tooltip from 'rc-tooltip';
 
 import { ActivityFiltersModel } from 'pages/dashboard/types';
 import { CustomInputWithIcon } from 'components/input';
 
 import { FiltersContainer, FilterFavIcon } from './filters.styled';
+import 'rc-tooltip/assets/bootstrap.css';
 
 const Filters: React.FC<ActivityFiltersModel> = ({
   filter,
@@ -17,13 +19,19 @@ const Filters: React.FC<ActivityFiltersModel> = ({
 
   return (
     <FiltersContainer>
-      <FilterFavIcon onClick={toggleDisplayFavs}>
-        {displayFavs ? (
-          <i className='fas fa-heart' />
-        ) : (
-          <i className='far fa-heart' />
-        )}
-      </FilterFavIcon>
+      <Tooltip
+        placement='top'
+        trigger={['hover']}
+        overlay={<span>Show/Hide Favs</span>}
+      >
+        <FilterFavIcon onClick={toggleDisplayFavs}>
+          {displayFavs ? (
+            <i className='fas fa-heart' />
+          ) : (
+            <i className='far fa-heart' />
+          )}
+        </FilterFavIcon>
+      </Tooltip>
       <CustomInputWithIcon
         placeholder='&#xf002; Some Input Text'
         name='filter'

@@ -1,4 +1,5 @@
 import React from 'react';
+import Tooltip from 'rc-tooltip';
 
 import { FavouritesListItemModel } from 'pages/slide-panel/slide-panel-types.d';
 import { LikeTitleContainer } from 'components/container';
@@ -14,7 +15,9 @@ const FavouritesListItem: React.FC<FavouritesListItemModel> = ({
   <FavouriteListItemContainer>
     <LikeTitleContainer>
       <h4>{favourite.activity}</h4>
-      <i onClick={() => onRemove()} className='fas fa-heart' />
+      <Tooltip placement='top' overlay={<span>Unlike</span>}>
+        <i onClick={() => onRemove()} className='fas fa-heart' />
+      </Tooltip>
     </LikeTitleContainer>
     <FavouritesListItemInfo>
       <i className='fas fa-percentage' />

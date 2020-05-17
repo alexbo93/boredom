@@ -1,4 +1,6 @@
 import React from 'react';
+import Tooltip from 'rc-tooltip';
+
 import { RandomActivityPanelContentModel } from './types';
 import { RandomListItemInfo } from './random-activity-panel.styled';
 import { LikeTitleContainer } from 'components/container';
@@ -18,7 +20,9 @@ const RandomActivityPanelContent: React.FC<RandomActivityPanelContentModel> = ({
       <h1>Quick Fun!</h1>
       <LikeTitleContainer>
         <h4>{activity.activity}</h4>
-        <i onClick={onLike} className='far fa-heart' />
+        <Tooltip placement='top' overlay={<span>Like me!</span>}>
+          <i onClick={onLike} className='far fa-heart' />
+        </Tooltip>
       </LikeTitleContainer>
       <RandomListItemInfo>
         <strong>Accessibility</strong>
