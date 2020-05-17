@@ -10,11 +10,9 @@ import {
 import Login from './pages/login';
 import Dashboard from './pages/dashboard';
 import NotFound from './pages/not-found';
+import SlidePanel from './pages/slide-panel';
 
 import PrivateRoute from 'hoc/private-route';
-
-// import Header from './components/header';
-// import Footer from './components/footer';
 
 import './App.css';
 import { getActivities } from 'redux/activities';
@@ -41,6 +39,7 @@ const App = () => {
           </Route>
           <Redirect to='/not-found' />
         </Switch>
+        <SlidePanel />
       </div>
     </Router>
   );
