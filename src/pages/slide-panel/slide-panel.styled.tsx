@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { HoverAnimation } from '../../components/shared/shared.styled';
 
 export const FavouritesListTitleClose = styled.i`

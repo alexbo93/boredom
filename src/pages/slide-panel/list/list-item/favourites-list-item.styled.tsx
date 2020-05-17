@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { HoverAnimation } from 'components/shared/shared.styled';
 
 export const FavouriteListItemContainer = styled.div`
   padding: 0 10px;
