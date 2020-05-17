@@ -7,10 +7,13 @@ import {
   setFavouritesInvisible,
 } from 'redux/fav-slide-panel';
 import { selectFavourites, removeFavourite } from 'redux/favourites';
-import styles from './slide-panel.module.css';
 
 import FavouritesList from './list';
 import { NotFoundLabel } from 'pages/dashboard/dashboard.styled';
+import { MainButton } from 'components/button';
+
+import { FavouritesListTitleClose } from './slide-panel.styled';
+import styles from './slide-panel.module.css';
 
 const SlidePanel: React.FC<{}> = () => {
   const isPanelVisible = useSelector(selectFavourtiesPanelVisible);
@@ -35,7 +38,13 @@ const SlidePanel: React.FC<{}> = () => {
         onRequestClose={setPanelInvisible}
         onAfterOpen={() => (document.body.style.overflow = 'hidden')}
       >
-        <h3>Favourites List</h3>
+        <h3>
+          Favourites List
+          <FavouritesListTitleClose
+            onClick={setPanelInvisible}
+            className='fas fa-times'
+          />
+        </h3>
         {getIsFavouritesEmpty() ? (
           <FavouritesList
             favourites={favourites}
@@ -44,6 +53,9 @@ const SlidePanel: React.FC<{}> = () => {
         ) : (
           <NotFoundLabel>You don't have favourites yet!</NotFoundLabel>
         )}
+        <MainButton as='button' onClick={setPanelInvisible}>
+          Done!
+        </MainButton>
       </ReactModal>
     </div>
   );
