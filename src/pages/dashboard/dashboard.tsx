@@ -65,7 +65,6 @@ const Dashboard: React.FC<{}> = () => {
           onChange={setPage}
         />
       </PaginationContainer>
-      {/* <Footer /> */}
     </>
   );
 };

@@ -16,7 +16,7 @@ const ActivitiesListItem: React.FC<ActivitiesListItemModel> = ({
   const onLike = () => onToggleLike(activity);
   return (
     <ListItemContainer data-testid='list__item-container'>
-      <ItemIconContainer onClick={onLike}>
+      <ItemIconContainer onClick={onLike} data-testid='activities-list__like'>
         {isFavourite ? (
           <i className='fas fa-heart' />
         ) : (
@@ -36,7 +36,7 @@ const ActivitiesListItem: React.FC<ActivitiesListItemModel> = ({
         <span data-testid='participants'>{activity.participants}</span>
       </ItemVariableInfoContainer>
       <ItemVariableInfoContainer>
-        <span data-testid='participants'>{activity.price}</span>
+        <span data-testid='price'>{activity.price}</span>
       </ItemVariableInfoContainer>
     </ListItemContainer>
   );

@@ -28,7 +28,7 @@ const ActivitiesList: React.FC<ActivitiesListModel> = ({
   };
 
   return (
-    <div data-testid='activities-list__list-container'>
+    <div data-testid='activities-list__container'>
       <ActivitiesListLabels onLabelSelected={onLabelSelected} />
       {getList()}
     </div>

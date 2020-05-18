@@ -18,13 +18,13 @@ const Filters: React.FC<ActivityFiltersModel> = ({
   };
 
   return (
-    <FiltersContainer>
+    <FiltersContainer data-testid='filter-area'>
       <Tooltip
         placement='top'
         trigger={['hover']}
         overlay={<span>Show/Hide Favs</span>}
       >
-        <FilterFavIcon onClick={toggleDisplayFavs}>
+        <FilterFavIcon onClick={toggleDisplayFavs} data-testid='fav-filter'>
           {displayFavs ? (
             <i className='fas fa-heart' />
           ) : (
@@ -35,7 +35,7 @@ const Filters: React.FC<ActivityFiltersModel> = ({
       <CustomInputWithIcon
         placeholder='&#xf002; Some Input Text'
         name='filter'
-        data-testid='filter-name'
+        data-testid='filter-activity'
         type='text'
         value={filter}
         onChange={onFilterChange}
