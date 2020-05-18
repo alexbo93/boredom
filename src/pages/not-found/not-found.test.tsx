@@ -7,8 +7,6 @@ import NotFound from './not-found';
 import configureStore from '../../redux/store';
 import ConnectedComponent from '../../utils/test-utils';
 
-jest.mock('../../utils/api-caller');
-
 const getConnectedComponent = (store: Store) => (
   <ConnectedComponent store={store}>
     <NotFound />

@@ -17,30 +17,38 @@ const RandomActivityPanelContent: React.FC<RandomActivityPanelContentModel> = ({
   };
   return (
     <>
-      <h1>Quick Fun!</h1>
+      <h1 data-testid='random-activity__title'>Quick Fun!</h1>
       <LikeTitleContainer>
-        <h4>{activity.activity}</h4>
+        <h4 data-testid='random-description'>{activity.activity}</h4>
         <Tooltip placement='top' overlay={<span>Like me!</span>}>
-          <i onClick={onLike} className='far fa-heart' />
+          <i
+            data-testid='random-like__button'
+            onClick={onLike}
+            className='far fa-heart'
+          />
         </Tooltip>
       </LikeTitleContainer>
       <RandomListItemInfo>
         <strong>Accessibility</strong>
-        <span>{activity.accessibility}</span>
+        <span data-testid='random-accessibility'>{activity.accessibility}</span>
       </RandomListItemInfo>
       <RandomListItemInfo>
         <strong>Type</strong>
-        <span>{activity.type}</span>
+        <span data-testid='random-type'>{activity.type}</span>
       </RandomListItemInfo>
       <RandomListItemInfo>
         <strong>Participants</strong>
-        <span>{activity.participants}</span>
+        <span data-testid='random-participants'>{activity.participants}</span>
       </RandomListItemInfo>
       <RandomListItemInfo>
         <strong>Price</strong>
-        <span>{activity.price}</span>
+        <span data-testid='random-price'>{activity.price}</span>
       </RandomListItemInfo>
-      <MainButton as='button' onClick={() => closePanel()}>
+      <MainButton
+        as='button'
+        data-testid='random-close__button'
+        onClick={() => closePanel()}
+      >
         I'm done!
       </MainButton>
     </>

@@ -1,13 +1,13 @@
 import React from 'react';
 import { Store } from 'redux';
-import { render, fireEvent, findByTestId } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 
 import Login from './login';
 
 import configureStore from '../../redux/store';
 import { mockedState } from '../../utils/test-utils/__mocks__/state-mock';
 import ConnectedComponent from '../../utils/test-utils';
-import { selectAuth, selectUserName } from '../../redux/auth';
+import { selectUserName } from '../../redux/auth';
 
 const getConnectedComponent = (store: Store) => (
   <ConnectedComponent store={store}>

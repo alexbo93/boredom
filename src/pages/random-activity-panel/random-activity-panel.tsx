@@ -35,6 +35,7 @@ const RandomActivityPanel: React.FC<{}> = () => {
       isOpen={getIsModalVisible()}
       onRequestClose={setPanelInvisible}
       shouldCloseOnOverlayClick
+      ariaHideApp={false}
     >
       <RandomActivityPanelContent
         activity={randomActivity as Activity}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, queryAllByTestId } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 import ActivitiesListItem from './list-item';
 import mockActivities from '../../../../utils/test-utils/__mocks__/activities-mock';
