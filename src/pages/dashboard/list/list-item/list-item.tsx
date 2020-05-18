@@ -18,9 +18,9 @@ const ActivitiesListItem: React.FC<ActivitiesListItemModel> = ({
     <ListItemContainer data-testid='list__item-container'>
       <ItemIconContainer onClick={onLike} data-testid='activities-list__like'>
         {isFavourite ? (
-          <i className='fas fa-heart' />
+          <i data-testid='filled-heart' className='fas fa-heart' />
         ) : (
-          <i className='far fa-heart' />
+          <i data-testid='empty-heart' className='far fa-heart' />
         )}
       </ItemIconContainer>
       <ItemDescriptionContainer>
