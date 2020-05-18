@@ -46,15 +46,18 @@ const Login = () => {
       <LoginFormContainer>
         {!!storeName ? (
           <>
-            <h1>Your are already logged in</h1>
+            <h1 data-testid='already-logged__title'>
+              Your are already logged in
+            </h1>
             <MainButtonLink to='/'>Go to Dashboard</MainButtonLink>
           </>
         ) : (
-          <form onSubmit={handleLogin}>
-            <h1>Hi, Bored person</h1>
+          <form onSubmit={handleLogin} data-testid='login-form'>
+            <h1 data-testid='login-form__title'>Hi, Bored person</h1>
             <div>
               <CustomInput
                 name='nickname'
+                data-testid='login-form__input'
                 type='text'
                 onChange={handleNameChange}
                 value={nickname}
@@ -62,14 +65,19 @@ const Login = () => {
                 placeholder="What's your name?"
               />
               {!isNickValid() && visited ? (
-                <InputErrorLabel>
+                <InputErrorLabel data-testid='login-form__error-label'>
                   Name can only contain Alphabetic chars
                 </InputErrorLabel>
               ) : (
                 ''
               )}
             </div>
-            <MainButton as='button' type='submit' disabled={!isNickValid()}>
+            <MainButton
+              as='button'
+              data-testid='login-form__submit'
+              type='submit'
+              disabled={!isNickValid()}
+            >
               Let's go
             </MainButton>
           </form>

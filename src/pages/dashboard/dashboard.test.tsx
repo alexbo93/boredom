@@ -1,11 +1,6 @@
 import React from 'react';
 import { Store } from 'redux';
-import {
-  render,
-  fireEvent,
-  getAllByTestId,
-  getByTestId,
-} from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 
 import Dashboard from './dashboard';
 
@@ -14,8 +9,6 @@ import { mockedState } from '../../utils/test-utils/__mocks__/state-mock';
 import { shorterActivities } from '../../utils/test-utils/__mocks__/activities-mock';
 import ConnectedComponent from '../../utils/test-utils';
 import { selectFavourites } from '../../redux/favourites';
-
-// jest.mock('../../utils/api-caller');
 
 const getConnectedComponent = (store: Store) => (
   <ConnectedComponent store={store}>
